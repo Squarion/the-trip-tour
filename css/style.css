@@ -65,15 +65,20 @@ body {
 @media screen and (max-width: 500px) {
     .content {
         width: auto;
-        right: 50px;
-        left: 50px;
-        display: inline-block;
-        top: 50px;
-        bottom: 50px;
+        right: 25px;
+        left: 25px;
+        top: 25px;
+        bottom: 40px;
     }
 
     .overlay {
         background: rgba(0, 0, 0, 0.5);
+    }
+
+    .swiper-button-white {
+        height: 20px;
+        top: auto;
+        bottom: 10px;
     }
 }
 
