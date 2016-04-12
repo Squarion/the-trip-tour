@@ -45,7 +45,7 @@
 
     .content {
         position: absolute;
-        width: 25%;
+        width: 30%;
         left: 100px;
         top: 100px;
         color: #fff;
@@ -80,49 +80,43 @@
 <body>
     <!-- Swiper -->
     <div class="loader">
-        <div class='uil-ring-css'></div>
+        <div class="sk-folding-cube">
+  <div class="sk-cube1 sk-cube"></div>
+  <div class="sk-cube2 sk-cube"></div>
+  <div class="sk-cube4 sk-cube"></div>
+  <div class="sk-cube3 sk-cube"></div>
+</div>
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('https://c1.staticflickr.com/1/593/20587669602_3d0d1f225e_h.jpg&quot')" data-hash="1">
+            <div class="swiper-slide" style="background-image: url('img/1.jpg')" data-hash="3">
                 <div class="overlay">
                 </div>
                 <div class="content">
-                    <h1>Monte Matajur</h1>
-                    <p>De Monte Matajur was tot en met de Eerste Wereldoorlog Oostenrijks-Hongaars grondgebied en was strategisch erg belangrijk in de Slag bij Caporetto in 1917. Op 26 oktober van dat jaar slaagde luitenant (later veldmaarschalk) Erwin Rommel erin om met slechts 150 soldaten deze belangrijke bergtop in te nemen en 150 Italiaanse officieren, 9000 manschappen en 81 stuks geschut buit te maken. O.a. met deze actie slaagde de alliantie van Oostenrijk-Hongarije en Duitsland erin de Slag bij Caporetto van Italië te winnen.</p>
-                </div>
-                <audio class="s">
-                    <source src="sounds/waves.mp3" type="audio/mp3">
-                </audio>
-            </div>
-            <div class="swiper-slide" style="background-image: url('https://c2.staticflickr.com/6/5800/22307162260_2d409310ad_h.jpg')" data-hash="1">
-                <div class="overlay">
-                </div>
-                <div class="content">
-                    <h1>Palm tree, Costa Rica</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <audio class="sound">
-                    <source src="sounds/waves.mp3" type="audio/mp3">
-                </audio>
-            </div>
-            <div class="swiper-slide" style="background-image: url('https://c2.staticflickr.com/2/1542/25182896701_ad389497fa_h.jpg')" data-hash="2">
-                <div class="overlay">
-                </div>
-                <div class="content">
-                    <h1>Panamá City</h1>
+                    <h1>Panama-Stad</h1>
                     <p>Op 15 augustus 1519 werd door de Spaanse conquistador Pedro Arias Dávila, ongeveer elf kilometer ten oosten van het huidige centrum, een stad opgericht. Vanaf deze stad werden expedities opgezet die het Incarijk aanvielen. Het was eveneens een doorvoerplaats van zilver en goud dat naar Spanje werd vervoerd. Op 21 januari 1671 werd de stad verwoest door de Welshe piraat Henry Morgan en later op zijn huidige plek herbouwd. Van het oude stadsgebied bestaan nog ruïnes, welke in 1997 door UNESCO tot werelderfgoed zijn verklaard. Dit gedeelte staat bekend onder de naam Panamá Viejo.</p>
                 </div>
                 <audio class="sound">
                     <source src="sounds/waves-calm.mp3" type="audio/mp3">
                 </audio>
             </div>
-            <div class="swiper-slide" style="background-image: url('https://c2.staticflickr.com/2/1561/25249788876_8fea81f611_h.jpg')" data-hash="3">
+            <div class="swiper-slide" style="background-image: url('img/2.jpg')" data-hash="2">
                 <div class="overlay">
                 </div>
                 <div class="content">
                     <h1>Panama</h1>
                     <p>De Republiek Panama (Spaans: República de Panamá) is een land in Centraal-Amerika dat grenst aan Costa Rica en Colombia. Panama is vooral bekend door het Panamakanaal, dat de doorsteek mogelijk maakt tussen de Atlantische Oceaan en de Grote Oceaan.</p>
+                </div>
+                <audio class="sound">
+                    <source src="sounds/waves-grain.mp3" type="audio/mp3">
+                </audio>
+            </div>
+            <div class="swiper-slide" style="background-image: url('img/3.jpg')" data-hash="3">
+                <div class="overlay">
+                </div>
+                <div class="content">
+                    <h1>Buzludzha</h1>
+                    <p>Buzludzha (Bulgarian: Бузлуджа Buzluđa derived from Turkish icy) is a historical peak in the Central Balkan Mountains, Bulgaria and is 1441 metres high (4728 ft). In 1868 it was the place of the final battle between Bulgarian rebels led by Hadji Dimitar and Stefan Karadzha[1] and the Ottoman Empire.</p>
                 </div>
                 <audio class="sound">
                     <source src="sounds/waves-grain.mp3" type="audio/mp3">
@@ -143,10 +137,12 @@
     <script>
         $(function() {
             $('.content').hide();
+            $('.overlay').hide();
             $(window).on("load", function() {
                 $('.loader').fadeOut(500, function() {
                     $('.swiper-container').css('visibility', 'visible');
                     $('.swiper-container').css('opacity', '1');
+                    $('.swiper-slide-active .overlay').show();
                     $('.swiper-slide-active .content').show();
                 });
             });
@@ -166,8 +162,11 @@
         hashnav: true,
         speed: 500,
         onSlideChangeEnd: function(swiper) {
-            $('.content').hide();
-            $('.swiper-slide-active .content').fadeIn('500');
+            //$('.content').hide();
+            $('.swiper-slide-active .content').fadeIn(1000);
+
+            //$('.overlay').hide();
+            $('.swiper-slide-active .overlay').fadeIn(1000);
 
             $(".sound").trigger('pause');
             $(".swiper-slide-active .sound").trigger('play');
