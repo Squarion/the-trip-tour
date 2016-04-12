@@ -1,92 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
+
     <title>Photodiary</title>
+
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="css/swiper.min.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/reset.css">
-
-    <!-- Demo styles -->
-    <style>
-    @font-face {
-        font-family: 'CrimsonText';
-        src: url('fonts/CrimsonText-Roman.ttf');
-    }
-
-    html, body {
-        position: relative;
-        height: 100%;
-    }
-    body {
-        font-family: 'CrimsonText', Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        background-color:#000;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper-container {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        visibility: hidden;
-        transition: 1s;
-    }
-    .swiper-slide {
-        font-size: 18px;
-        background: #fff;
-        background-size: cover;
-        background-position: 50% 50%;
-    }
-
-    .content {
-        position: absolute;
-        width: 30%;
-        left: 100px;
-        top: 100px;
-        color: #fff;
-        text-shadow: 0px 1px #000;
-    }
-
-    .content h1 {
-        font-size: 30px;
-        margin-bottom: 10px;
-    }
-
-    .content p {
-        font-size: 20px;
-        line-height: 25px;
-    }
-
-    .overlay {
-        position: absolute;
-        bottom: 0px;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
-        background: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
-        background: -moz-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
-    }
-
-    </style>
+    <!-- Slider -->
+    <link rel="stylesheet" href="css/swiper.min.css" type="text/css">
+    <!-- Loading icon -->
+    <link rel="stylesheet" href="css/loader.css" type="text/css">
+    <!-- Reset -->
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <!-- General -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <!-- Swiper -->
+    <!-- Loader icon -->
     <div class="loader">
         <div class="sk-folding-cube">
-  <div class="sk-cube1 sk-cube"></div>
-  <div class="sk-cube2 sk-cube"></div>
-  <div class="sk-cube4 sk-cube"></div>
-  <div class="sk-cube3 sk-cube"></div>
-</div>
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
     </div>
+
+    <!-- Slider -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" style="background-image: url('img/1.jpg')" data-hash="1">
@@ -123,56 +64,17 @@
                 </audio>
             </div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-       <div class="swiper-button-next swiper-button-white"></div>
-       <div class="swiper-button-prev swiper-button-white"></div>
+
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
     </div>
 
-    <!-- Swiper JS -->
+    <!-- Swiper -->
     <script src="js/swiper.min.js"></script>
+    <!-- jQuery -->
     <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- General -->
+    <script src="js/scripts.js"></script>
 
-    <script>
-        $(function() {
-            $('.content').hide();
-            $('.overlay').hide();
-            $(window).on("load", function() {
-                $('.loader').fadeOut(500, function() {
-                    $('.swiper-container').css('visibility', 'visible');
-                    $('.swiper-container').css('opacity', '1');
-                    $('.swiper-slide-active .overlay').show();
-                    $('.swiper-slide-active .content').show();
-                });
-            });
-
-        });
-    </script>
-    <!-- Initialize Swiper -->
-    <script>
-
-    var swiper = new Swiper('.swiper-container', {
-        //pagination: '.swiper-pagination',
-        //paginationClickable: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        keyboardControl: true,
-        spaceBetween: 0,
-        hashnav: true,
-        speed: 500,
-        onSlideChangeEnd: function(swiper) {
-            //$('.content').hide();
-            $('.swiper-slide-active .content').fadeIn(1000);
-
-            //$('.overlay').hide();
-            $('.swiper-slide-active .overlay').fadeIn(1000);
-
-            $(".sound").trigger('pause');
-            $(".swiper-slide-active .sound").trigger('play');
-        }
-    });
-
-    </script>
 </body>
 </html>
