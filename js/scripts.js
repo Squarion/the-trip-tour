@@ -20,8 +20,8 @@ var swiper = new Swiper('.swiper-container', {
 });
 
 $(function() {
-    $('.content').hide();
-    $('.overlay').hide();
+    $('.swiper-slide .content').hide();
+    $('.swiper-slide .overlay').hide();
     $(window).on("load", function() {
         $('.loader').fadeOut(500, function() {
             $('.swiper-container').css('visibility', 'visible');
@@ -29,5 +29,13 @@ $(function() {
             $('.swiper-slide-active .overlay').show();
             $('.swiper-slide-active .content').show();
         });
+    });
+
+    $('.read-more').click(function() {
+        $('.popup-overlay').fadeIn(1000);
+    });
+
+    $('.close').click(function() {
+        $('.popup-overlay').fadeOut(1000);
     });
 });
