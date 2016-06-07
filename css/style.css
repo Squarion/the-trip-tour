@@ -56,9 +56,10 @@ body {
     cursor: pointer;
     max-width: 130px;
     float: left;
-    text-shadow: none;
+    text-shadow: 1px;
     border: 2px solid #ffffff;
     transition: 0.2s;
+    box-shadow: 1px #000;
 }
 
 .swiper-slide .content .read-more:hover {
